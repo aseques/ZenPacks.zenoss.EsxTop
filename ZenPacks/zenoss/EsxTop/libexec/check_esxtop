@@ -181,7 +181,7 @@ class EsxTopRunner(object):
         or die and print the error message.
         """
         password = self.options.password
-        env = dict(VI_PASSWORD=password)
+        env = dict(os.environ, VI_PASSWORD=password)
         proc = Popen(command, env=env, stderr=PIPE, shell=True)
         ouput, warnings = proc.communicate()
         proc.wait()
@@ -368,7 +368,7 @@ class VmPrinter(ColumnPrinter):
             if regex.match(name):
                 return False
         return True
-
+e
 
 class SimpleFilteringPrinter(Printer):
     def __init__( self, datasource, component, matchRegexTemplate ):
